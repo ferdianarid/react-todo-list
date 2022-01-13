@@ -3,7 +3,7 @@ import React from 'react'
 // Form Components
 const Form = (props) => {
        // Destructuring props
-       const { changeText, todos, setTodoList, inputText } = props
+       const { changeText, todos, setTodoList, inputText, setStatus } = props
 
        // Input Handler
        const InputHandler = (event) => {
@@ -29,6 +29,13 @@ const Form = (props) => {
               // Reset Input after Submit Data
               changeText("")
        }
+
+       // Select Status Handler
+       const SelectStatusHandler = (event) => {
+              const values = event.target.value
+              setStatus(values)
+              console.log(values)
+       }
        return (
               <React.Fragment>
                      {/* Form Action */}
@@ -40,7 +47,7 @@ const Form = (props) => {
 
                             {/* Select Todos */}
                             <div className="select">
-                                   <select name="todo" id="todo" className='filter-todo bg-white'>
+                                   <select onChange={SelectStatusHandler} name="todo" id="todo" className='filter-todo bg-white'>
                                           {/* Option Values */}
                                           <option value="all">All</option>
                                           <option value="completed">Completed</option>

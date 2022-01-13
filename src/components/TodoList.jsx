@@ -4,14 +4,14 @@ import React from 'react'
 import Todos from './Todos'
 
 // TodoList Component || Destructuring Props
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, setTodos }) => {
        return (
               <React.Fragment>
                      <div className="todo-container">
                             <ul className="todo-list">
                                    {
                                           todos.map(todo => (
-                                                 <Todos id={todo.id} text={todo.text} />
+                                                 <Todos setTodos={setTodos} todos={todos} todo={todo} key={todo.id} text={todo.text} />
                                           ))
                                    }
                             </ul>
